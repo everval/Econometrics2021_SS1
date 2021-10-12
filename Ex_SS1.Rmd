@@ -7,25 +7,21 @@ output: pdf_document
 \begin{enumerate}
 
   
-\item \textbf{FD and FE for 2-periods data}: Consider the following simple panel data model
-  $$y_{i,t}=x_{i,t}\beta+\alpha_i^*+\varepsilon_{i,t},\quad i=1,\cdots,N,\quad t=1,\cdots,T,$$
-where $\beta$ is one-dimensional, and where it is assumed that
-$$\alpha_i^*=\bar{x}_i\lambda+\alpha_i,\quad \text{with} \quad \alpha_i\sim NID(0,\sigma_\alpha^2), \quad \varepsilon_{i,t}\sim NID(0,\sigma_\varepsilon^2),$$
-mutually independent and independent for all $x_{i,t}$, where $\bar{x}_i=(1/T)\sum_{t=1}^Tx_{i,t}$.
+\item \textbf{FD and FE when $T=2$}: For $T=2$ consider the standard unobserved effects model 
+  $$y_{i,t}=x_{i,t}\beta+u_{i,t},\quad i=1,\cdots,N,\quad t=1,2.$$
+Let $\hat{\beta}_{FE}$ and $\hat{\beta}_{FD}$ denote the fixed effects and first difference estimators, respectively. 
 
-The parameter $\beta$ can be estimated by the fixed effects (or within) estimator given by
-$$\hat{\beta}_{FE}=\frac{\sum_{i=1}^N\sum_{t=1}^T(x_{i,t}-\bar{x}_i)(y_{i,t}-\bar{y}_i)}{\sum_{i=1}^N\sum_{t=1}^T(x_{i,t}-\bar{x}_i)^2}.$$
-  \begin{enumerate}
-    \item As an alternative, the correlation between the error term $\alpha_i^*+\varepsilon_{i,t}$ and $x_{i,t}$ can be handled by an instrumental variables approach.
-  
-   Give an expression for the IV estimator $\hat{\beta}_{IV}$ using $x_{i,t}-\bar{x}_i$ as an instrument for $x_{i,t}$. Show that $\hat{\beta}_{IV}$ and $\hat{\beta}_{FE}$ are identical. 
-  
-  \item Another way to eliminate the individual effects $\alpha_i^*$ from the model is obtained by taking first differences. This results in 
-  $$y_{i,t}-y_{i,t-1}= (x_{it}-x_{i,t-1})\beta + (\varepsilon_{i,t}-\varepsilon_{i,t}),\quad  i=1,\cdots,N,\quad t=2,\cdots,T.$$
-  
-  Denote the OLS estimator based on the equation just above by $\hat{\beta}_{FD}$. Show that $\hat{\beta}_{FD}$ is identical to $\hat{\beta}_{IV}$ and $\hat{\beta}_{FE}$ if $T=2$. This identity does no longer hold for $T>2$. 
+\begin{enumerate}
 
-  \end{enumerate}
+\item Show that the FE and FD estimates are numerically identical.
+
+\item Show that the variance matrix estimates from the FE and FD methods are numerically identical.
+
+Use the consistent estimator for $\sigma_u^2$ given by $\hat{\sigma}_u^2 = RSS/(N(T-1)-K)$, with $RSS$ the residual sum of squares and $K$ the number of regressors.
+
+\end{enumerate}
+
+*The results above do not hold for $T>2$.
 
   	\item \textbf{Differences-in-differences} 
   	 
